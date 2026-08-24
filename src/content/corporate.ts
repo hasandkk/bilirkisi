@@ -4,6 +4,8 @@ export type CorporateSolution = {
   slug: string;
   title: string;
   shortTitle: string;
+  /** Kartlarda gosterilen tek satirlik etiket. */
+  tagline: string;
   icon: IconKey | "shield" | "briefcase";
   summary: string;
   intro: string[];
@@ -16,6 +18,7 @@ export type CorporateSolution = {
 export const corporateSolutions: CorporateSolution[] = [
   {
     slug: "sigorta-sirketleri",
+    tagline: "Hasar, rücu ve teknik dosya",
     title: "Sigorta Şirketleri",
     shortTitle: "Sigorta",
     icon: "shield",
@@ -47,6 +50,7 @@ export const corporateSolutions: CorporateSolution[] = [
   },
   {
     slug: "sanayi-ve-fabrikalar",
+    tagline: "Yangın, tesis ve makine",
     title: "Sanayi ve Fabrikalar",
     shortTitle: "Sanayi",
     icon: "fire",
@@ -74,6 +78,7 @@ export const corporateSolutions: CorporateSolution[] = [
   },
   {
     slug: "filo-ve-rent-a-car",
+    tagline: "Araç hasarı ve onarım",
     title: "Filo ve Rent a Car Şirketleri",
     shortTitle: "Filo",
     icon: "vehicle",
@@ -101,6 +106,7 @@ export const corporateSolutions: CorporateSolution[] = [
   },
   {
     slug: "insaat-sirketleri",
+    tagline: "Yapı ve imalat uyuşmazlığı",
     title: "İnşaat Şirketleri",
     shortTitle: "İnşaat",
     icon: "building",
@@ -128,6 +134,7 @@ export const corporateSolutions: CorporateSolution[] = [
   },
   {
     slug: "gayrimenkul-sirketleri",
+    tagline: "Taşınmaz ve değerleme",
     title: "Gayrimenkul Şirketleri",
     shortTitle: "Gayrimenkul",
     icon: "estate",
@@ -154,6 +161,7 @@ export const corporateSolutions: CorporateSolution[] = [
   },
   {
     slug: "bankalar-ve-finans-kuruluslari",
+    tagline: "Değerleme ve teknik durum",
     title: "Bankalar ve Finans Kuruluşları",
     shortTitle: "Finans",
     icon: "briefcase",
@@ -179,6 +187,7 @@ export const corporateSolutions: CorporateSolution[] = [
   },
   {
     slug: "sirket-hukuk-departmanlari",
+    tagline: "Dava dosyalarında uzman görüşü",
     title: "Şirket Hukuk Departmanları",
     shortTitle: "Hukuk Departmanları",
     icon: "document",

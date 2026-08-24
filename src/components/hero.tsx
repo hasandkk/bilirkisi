@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { cta } from "@/content/site";
 import { expertiseAreas } from "@/content/expertise";
-import { ArrowRightIcon } from "./icons";
+import { areaIcons, ArrowRightIcon } from "./icons";
 import { HeroVisual } from "./hero-visual";
 
 export function Hero() {
@@ -42,10 +42,8 @@ export function Hero() {
               ve Raporlama
             </h1>
 
-            <p className="mt-7 max-w-xl text-[1.0625rem] leading-relaxed text-navy-200 sm:text-lg">
-              Trafik kazaları, otomotiv, fabrika ve endüstriyel yangınlar, yapı,
-              taşınmaz, iş kazaları, bilişim ve belge inceleme alanlarında dosya
-              bazlı teknik analiz ve uzman görüşü.
+            <p className="mt-7 max-w-lg text-[1.0625rem] leading-relaxed text-navy-200 sm:text-lg">
+              Dosya bazlı teknik analiz ve uzman görüşü.
             </p>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -64,20 +62,30 @@ export function Hero() {
               </Link>
             </div>
 
-            {/* Alan seridi */}
+            {/* Alan seridi — ikon odakli */}
             <div className="mt-12 border-t border-white/10 pt-8">
-              <p className="eyebrow mb-4 text-navy-300">İnceleme Alanları</p>
-              <ul className="flex flex-wrap gap-x-2 gap-y-2">
-                {expertiseAreas.map((area) => (
-                  <li key={area.slug}>
-                    <Link
-                      href={`/uzmanlik-alanlari/${area.slug}`}
-                      className="inline-flex items-center border border-white/12 bg-white/[0.03] px-3.5 py-2 text-[0.8125rem] text-navy-200 transition-colors hover:border-gold-500/50 hover:bg-white/[0.07] hover:text-white"
-                    >
-                      {area.shortTitle}
-                    </Link>
-                  </li>
-                ))}
+              <ul className="grid grid-cols-4 gap-px bg-white/10 sm:grid-cols-7">
+                {expertiseAreas.map((area) => {
+                  const Icon = areaIcons[area.icon];
+                  return (
+                    <li key={area.slug} className="bg-navy-950">
+                      <Link
+                        href={`/uzmanlik-alanlari/${area.slug}`}
+                        title={area.navTitle}
+                        className="group flex aspect-square flex-col items-center justify-center gap-2 transition-colors hover:bg-navy-800"
+                      >
+                        <Icon className="size-6 text-navy-300 transition-colors group-hover:text-gold-500" />
+                        <span className="sr-only">{area.navTitle}</span>
+                        <span
+                          aria-hidden
+                          className="font-mono text-[0.5625rem] tracking-[0.1em] text-navy-600 transition-colors group-hover:text-gold-500"
+                        >
+                          {area.index}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>

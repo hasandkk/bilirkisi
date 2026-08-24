@@ -71,7 +71,7 @@ export default function ProcessPage() {
       </Section>
 
       <MultidisciplinarySection />
-      <ReportApproachSection />
+      <ReportApproachSection full />
 
       <Section>
         <div className="container-page">

@@ -5,7 +5,8 @@ import { PageHero, breadcrumbJsonLd } from "@/components/page-hero";
 import { CtaBand } from "@/components/cta-band";
 import { ProcessSection } from "@/components/sections";
 import { BulletList, ButtonLink, NoteBox, Section, SectionHeader } from "@/components/ui";
-import { areaIcons, ArrowRightIcon } from "@/components/icons";
+import { ArrowRightIcon } from "@/components/icons";
+import { areaScenes } from "@/components/illustrations";
 import { expertiseAreas, getExpertise } from "@/content/expertise";
 import { seoPageBySlug } from "@/content/seo-pages";
 import { cta, scopeStatement } from "@/content/site";
@@ -36,7 +37,7 @@ export default async function ExpertiseDetailPage({ params }: Params) {
   const area = getExpertise(slug);
   if (!area) notFound();
 
-  const Icon = areaIcons[area.icon];
+  const Scene = areaScenes[area.icon as keyof typeof areaScenes];
   const crumbs = [
     { label: "Uzmanlık Alanları", href: "/uzmanlik-alanlari" },
     { label: area.navTitle },
@@ -54,21 +55,22 @@ export default async function ExpertiseDetailPage({ params }: Params) {
         description={area.description}
         crumbs={crumbs}
         aside={
-          <div className="border border-white/12 bg-white/[0.035] p-7">
-            <Icon className="size-12 text-gold-500" />
-            <p className="mt-6 font-display text-lg leading-snug font-medium text-white">
-              {area.summary}
-            </p>
-            <div className="mt-7 border-t border-white/10 pt-6">
+          <div className="border border-white/12 bg-white/[0.035]">
+            {Scene ? (
+              <div className="border-b border-white/10 p-6 text-navy-200 sm:p-8">
+                <Scene />
+              </div>
+            ) : null}
+            <div className="p-6 sm:p-8">
               <p className="eyebrow mb-3 text-gold-400">Kapsam</p>
               <p className="text-[0.875rem] leading-relaxed text-navy-200">
                 {area.services.length} başlıkta teknik inceleme ve raporlama
               </p>
-            </div>
-            <div className="mt-7">
-              <ButtonLink href={cta.primaryLong.href} variant="gold" size="md" withArrow className="w-full">
-                {area.ctaLabel}
-              </ButtonLink>
+              <div className="mt-6">
+                <ButtonLink href={cta.primaryLong.href} variant="gold" size="md" withArrow className="w-full">
+                  {area.ctaLabel}
+                </ButtonLink>
+              </div>
             </div>
           </div>
         }

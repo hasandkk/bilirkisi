@@ -214,7 +214,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <ReportApproachSection />
+      <ReportApproachSection full />
       <CtaBand />
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
     </>

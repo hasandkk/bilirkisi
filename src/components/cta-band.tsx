@@ -4,7 +4,7 @@ import { ArrowRightIcon, MailIcon, PhoneIcon } from "./icons";
 
 export function CtaBand({
   title = "Dosyanızdaki teknik soruyu birlikte tanımlayalım",
-  description = "Uyuşmazlığın konusunu ve elinizdeki belgeleri iletin; dosyanın hangi teknik soruları içerdiğini ve hangi uzmanlık alanlarını gerektirdiğini ön inceleme kapsamında değerlendirelim.",
+  description = "Uyuşmazlığın konusunu ve elinizdeki belgeleri iletin; hangi teknik soruları içerdiğini ön inceleme kapsamında değerlendirelim.",
   showDisclaimer = true,
 }: {
   title?: string;

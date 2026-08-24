@@ -4,6 +4,7 @@ import {
   AudiencesSection,
   CorporateSection,
   ExpertiseSection,
+  FactStrip,
   KnowledgeSection,
   LawyersSection,
   MultidisciplinarySection,
@@ -27,6 +28,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <FactStrip />
       <AudiencesSection />
       <ExpertiseSection />
       <TechnicalQuestionsSection />
@@ -36,7 +38,7 @@ export default function HomePage() {
       <ProcessSection />
       <ReportApproachSection />
       <KnowledgeSection />
-      <FaqSection />
+      <FaqSection items={faqItems.slice(0, 5)} />
       <CtaBand />
       <JsonLd data={faqJsonLd(faqItems)} />
     </>
