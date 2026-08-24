@@ -61,20 +61,20 @@ export function SiteHeader() {
       {/* Ust bilgi seridi */}
       <div className="hidden bg-navy-950 text-navy-200 lg:block">
         <div className="container-page flex h-10 items-center justify-between">
-          <p className="font-mono text-[0.6875rem] tracking-[0.12em] uppercase">
+          <p className="font-mono text-[0.6875rem] tracking-[0.12em] whitespace-nowrap uppercase">
             {site.coverage} · Teknik inceleme, uzman görüşü ve raporlama
           </p>
           <div className="flex items-center gap-7 text-[0.8125rem]">
             <a
               href={`tel:${contact.phoneHref}`}
-              className="inline-flex items-center gap-2 transition-colors hover:text-white"
+              className="inline-flex items-center gap-2 whitespace-nowrap transition-colors hover:text-white"
             >
               <PhoneIcon className="size-3.5 text-gold-500" />
               {contact.phoneDisplay}
             </a>
             <a
               href={`mailto:${contact.email}`}
-              className="inline-flex items-center gap-2 transition-colors hover:text-white"
+              className="inline-flex items-center gap-2 whitespace-nowrap transition-colors hover:text-white"
             >
               <MailIcon className="size-3.5 text-gold-500" />
               {contact.email}
@@ -83,131 +83,27 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Ana bar */}
+      {/* Yapisan ana bar */}
       <div
         className={cn(
           "sticky top-0 z-50 border-b bg-white/95 backdrop-blur-md transition-shadow duration-300",
-          scrolled ? "border-line shadow-header" : "border-transparent",
+          scrolled ? "border-line shadow-header" : "border-line/70",
         )}
       >
+        {/* Satir 1: logo + CTA'lar */}
         <div className="container-page flex h-18 items-center justify-between gap-6 lg:h-20">
           <Logo />
-
-          <nav aria-label="Ana menü" className="hidden xl:block">
-            <ul className="flex items-center gap-0.5">
-              {primaryNav.map((item) => {
-                const active = isActive(item.href);
-                if (!item.children) {
-                  return (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        className={cn(
-                          "relative inline-flex h-20 items-center px-3 text-[0.8125rem] font-medium tracking-[-0.005em] transition-colors",
-                          active ? "text-navy-900" : "text-ink-soft hover:text-navy-900",
-                        )}
-                      >
-                        {item.label}
-                        {active ? (
-                          <span
-                            aria-hidden
-                            className="absolute inset-x-3 bottom-0 h-0.5 bg-gold-500"
-                          />
-                        ) : null}
-                      </Link>
-                    </li>
-                  );
-                }
-                const open = openMenu === item.href;
-                return (
-                  <li
-                    key={item.href}
-                    className="relative"
-                    onMouseEnter={() => {
-                      cancelClose();
-                      setOpenMenu(item.href);
-                    }}
-                    onMouseLeave={scheduleClose}
-                  >
-                    <Link
-                      href={item.href}
-                      aria-expanded={open}
-                      onFocus={() => setOpenMenu(item.href)}
-                      className={cn(
-                        "relative inline-flex h-20 items-center gap-1.5 px-3 text-[0.8125rem] font-medium transition-colors",
-                        active ? "text-navy-900" : "text-ink-soft hover:text-navy-900",
-                      )}
-                    >
-                      {item.label}
-                      <svg
-                        viewBox="0 0 10 6"
-                        aria-hidden
-                        className={cn(
-                          "size-2 transition-transform duration-200",
-                          open && "rotate-180",
-                        )}
-                      >
-                        <path
-                          d="M1 1l4 4 4-4"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.4"
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                      {active ? (
-                        <span
-                          aria-hidden
-                          className="absolute inset-x-3 bottom-0 h-0.5 bg-gold-500"
-                        />
-                      ) : null}
-                    </Link>
-
-                    <div
-                      className={cn(
-                        "absolute top-full left-0 w-80 origin-top-left transition-all duration-200",
-                        open
-                          ? "pointer-events-auto translate-y-0 opacity-100"
-                          : "pointer-events-none -translate-y-1 opacity-0",
-                      )}
-                      onMouseEnter={cancelClose}
-                      onMouseLeave={scheduleClose}
-                    >
-                      <div className="mt-0 border border-line bg-white p-2 shadow-lift">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className="group flex items-center justify-between gap-3 px-4 py-3 text-[0.8125rem] text-ink-soft transition-colors hover:bg-surface hover:text-navy-900"
-                          >
-                            {child.label}
-                            <ArrowRightIcon className="size-3.5 shrink-0 opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-60" />
-                          </Link>
-                        ))}
-                        <Link
-                          href={item.href}
-                          className="mt-1 block border-t border-line px-4 py-3 font-mono text-[0.6875rem] tracking-[0.12em] text-gold-700 uppercase transition-colors hover:text-navy-900"
-                        >
-                          Tümünü Gör
-                        </Link>
-                      </div>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
 
           <div className="flex items-center gap-3">
             <Link
               href={cta.secondary.href}
-              className="hidden h-11 items-center border border-navy-900/20 px-4 text-[0.8125rem] font-medium text-navy-900 transition-colors hover:border-navy-900/45 hover:bg-navy-900/[0.035] 2xl:inline-flex"
+              className="hidden h-11 items-center border border-navy-900/20 px-5 text-[0.8125rem] font-medium whitespace-nowrap text-navy-900 transition-colors hover:border-navy-900/45 hover:bg-navy-900/[0.035] sm:inline-flex"
             >
               {cta.secondary.label}
             </Link>
             <Link
               href={cta.primary.href}
-              className="group hidden h-11 items-center gap-2 bg-navy-900 px-5 font-mono text-[0.6875rem] font-medium tracking-[0.12em] text-white uppercase transition-colors hover:bg-navy-700 sm:inline-flex"
+              className="group hidden h-11 items-center gap-2.5 bg-navy-900 px-5 font-mono text-[0.6875rem] font-medium tracking-[0.12em] whitespace-nowrap text-white uppercase transition-colors hover:bg-navy-700 xs:inline-flex"
             >
               {cta.primary.label}
               <ArrowRightIcon className="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -232,13 +128,106 @@ export function SiteHeader() {
             </button>
           </div>
         </div>
+
+        {/* Satir 2: ana menu (xl ve uzeri) */}
+        <div className="hidden border-t border-line xl:block">
+          <nav aria-label="Ana menü" className="container-page">
+            <ul className="flex items-center gap-1">
+              {primaryNav.map((item) => {
+                const active = isActive(item.href);
+                if (!item.children) {
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          "relative inline-flex h-13 items-center px-4 text-[0.8125rem] font-medium whitespace-nowrap transition-colors",
+                          active ? "text-navy-900" : "text-ink-soft hover:text-navy-900",
+                        )}
+                      >
+                        {item.label}
+                        {active ? (
+                          <span aria-hidden className="absolute inset-x-4 bottom-0 h-0.5 bg-gold-500" />
+                        ) : null}
+                      </Link>
+                    </li>
+                  );
+                }
+                const open = openMenu === item.href;
+                return (
+                  <li
+                    key={item.href}
+                    className="relative"
+                    onMouseEnter={() => {
+                      cancelClose();
+                      setOpenMenu(item.href);
+                    }}
+                    onMouseLeave={scheduleClose}
+                  >
+                    <Link
+                      href={item.href}
+                      aria-expanded={open}
+                      onFocus={() => setOpenMenu(item.href)}
+                      className={cn(
+                        "relative inline-flex h-13 items-center gap-2 px-4 text-[0.8125rem] font-medium whitespace-nowrap transition-colors",
+                        active ? "text-navy-900" : "text-ink-soft hover:text-navy-900",
+                      )}
+                    >
+                      {item.label}
+                      <svg
+                        viewBox="0 0 10 6"
+                        aria-hidden
+                        className={cn("size-2 transition-transform duration-200", open && "rotate-180")}
+                      >
+                        <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                      </svg>
+                      {active ? (
+                        <span aria-hidden className="absolute inset-x-4 bottom-0 h-0.5 bg-gold-500" />
+                      ) : null}
+                    </Link>
+
+                    <div
+                      className={cn(
+                        "absolute top-full left-0 w-80 origin-top-left transition-all duration-200",
+                        open
+                          ? "pointer-events-auto translate-y-0 opacity-100"
+                          : "pointer-events-none -translate-y-1 opacity-0",
+                      )}
+                      onMouseEnter={cancelClose}
+                      onMouseLeave={scheduleClose}
+                    >
+                      <div className="border border-line bg-white p-2 shadow-lift">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="group flex items-center justify-between gap-3 px-4 py-3 text-[0.8125rem] text-ink-soft transition-colors hover:bg-surface hover:text-navy-900"
+                          >
+                            {child.label}
+                            <ArrowRightIcon className="size-3.5 shrink-0 opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-60" />
+                          </Link>
+                        ))}
+                        <Link
+                          href={item.href}
+                          className="mt-1 block border-t border-line px-4 py-3 font-mono text-[0.6875rem] tracking-[0.12em] text-gold-700 uppercase transition-colors hover:text-navy-900"
+                        >
+                          Tümünü Gör
+                        </Link>
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </div>
       </div>
 
       {/* Mobil menu */}
       <div
         id="mobil-menu"
         className={cn(
-          "fixed inset-x-0 top-18 bottom-0 z-40 overflow-y-auto overscroll-contain border-t border-line bg-white transition-all duration-300 xl:hidden",
+          "fixed inset-x-0 top-18 bottom-0 z-40 overflow-y-auto overscroll-contain border-t border-line bg-white transition-all duration-300 lg:top-20 xl:hidden",
           mobileOpen
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none -translate-y-2 opacity-0",

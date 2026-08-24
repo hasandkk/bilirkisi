@@ -98,7 +98,7 @@ export function PageHero({
           <div className={aside ? "" : "max-w-4xl"}>
             {eyebrow ? (
               <p className="eyebrow mb-5 flex items-center gap-3 text-gold-400">
-                <span aria-hidden className="h-px w-8 bg-current opacity-60" />
+                <span aria-hidden className="hidden h-px w-8 bg-current opacity-60 sm:block" />
                 {eyebrow}
               </p>
             ) : null}

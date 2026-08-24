@@ -139,7 +139,7 @@ export function SectionHeader({
               dark ? "text-gold-400" : "text-gold-600",
             )}
           >
-            <span aria-hidden className="h-px w-8 bg-current opacity-60" />
+            <span aria-hidden className="hidden h-px w-8 bg-current opacity-60 sm:block" />
             {eyebrow}
           </p>
         ) : null}

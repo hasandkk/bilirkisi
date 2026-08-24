@@ -52,7 +52,7 @@ export function Logo({
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "font-display text-[0.9375rem] leading-none font-semibold tracking-[0.14em] sm:text-base",
+            "font-display text-[0.9375rem] leading-none font-semibold tracking-[0.14em] whitespace-nowrap sm:text-base",
             tone === "dark" ? "text-navy-900" : "text-white",
           )}
         >
@@ -61,7 +61,7 @@ export function Logo({
         {withTagline ? (
           <span
             className={cn(
-              "mt-2 font-mono text-[0.5625rem] leading-none tracking-[0.14em] uppercase",
+              "mt-2 font-mono text-[0.5625rem] leading-none tracking-[0.14em] whitespace-nowrap uppercase",
               tone === "dark" ? "text-ink-muted" : "text-navy-300",
             )}
           >

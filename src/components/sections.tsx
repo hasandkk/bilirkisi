@@ -371,7 +371,7 @@ export function LawyersSection() {
           <div className="relative grid gap-12 p-8 sm:p-12 lg:grid-cols-[1fr_0.85fr] lg:gap-16 lg:p-16">
             <div>
               <p className="eyebrow mb-5 flex items-center gap-3 text-gold-700">
-                <span aria-hidden className="h-px w-8 bg-current opacity-60" />
+                <span aria-hidden className="hidden h-px w-8 bg-current opacity-60 sm:block" />
                 Avukatlar ve Hukuk Büroları
               </p>
               <h2 className="text-[1.75rem] leading-tight font-semibold sm:text-[2.125rem] lg:text-[2.375rem]">

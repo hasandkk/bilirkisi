@@ -26,7 +26,7 @@ export function Hero() {
           {/* Metin */}
           <div className="animate-rise max-w-2xl">
             <p className="eyebrow mb-6 flex items-center gap-3 text-gold-400">
-              <span aria-hidden className="h-px w-10 bg-gold-500/70" />
+              <span aria-hidden className="hidden h-px w-10 bg-gold-500/70 sm:block" />
               Türkiye Geneli · Multidisipliner Teknik İnceleme
             </p>
 
@@ -36,7 +36,7 @@ export function Hero() {
                 <span className="relative z-10">Uzman İnceleme</span>
                 <span
                   aria-hidden
-                  className="absolute inset-x-0 bottom-1.5 z-0 h-2.5 bg-gold-500/25"
+                  className="absolute inset-x-0 -bottom-0.5 z-0 h-[3px] bg-gold-500"
                 />
               </span>{" "}
               ve Raporlama

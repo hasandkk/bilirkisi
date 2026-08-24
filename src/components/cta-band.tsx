@@ -27,7 +27,7 @@ export function CtaBand({
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-20">
           <div>
             <p className="eyebrow mb-5 flex items-center gap-3 text-gold-400">
-              <span aria-hidden className="h-px w-8 bg-current opacity-60" />
+              <span aria-hidden className="hidden h-px w-8 bg-current opacity-60 sm:block" />
               Dosya Ön İnceleme
             </p>
             <h2 className="text-[1.75rem] leading-tight font-semibold text-white sm:text-[2.125rem]">
