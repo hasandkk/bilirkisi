@@ -151,7 +151,9 @@ depolama servisine bağlanmalıdır.
 
 - [ ] `src/content/site.ts` → `contact` bloğundaki telefon, e-posta ve adres bilgilerini
       gerçek değerlerle değiştirin (mevcut değerler yer tutucudur).
-- [ ] `NEXT_PUBLIC_SITE_URL` değerini gerçek alan adına ayarlayın.
+- [ ] `NEXT_PUBLIC_SITE_URL` değerini gerçek alan adına ayarlayın. Tanımsız veya boş
+      bırakılırsa sırasıyla Vercel üretim adresi, Vercel dağıtım adresi ve varsayılan
+      alan adı kullanılır (`src/lib/site-url.ts`).
 - [ ] `PRE_REVIEW_WEBHOOK_URL` ile form başvurularını bir e-posta/CRM hedefine bağlayın.
 - [ ] KVKK aydınlatma metni ve gizlilik politikasını hukuk danışmanınıza kontrol ettirin;
       veri sorumlusu unvan ve adres bilgilerini tamamlayın.

@@ -2,6 +2,7 @@
  * Marka, iletisim ve global site bilgileri.
  * Iletisim alanlari yayina alinmadan once gercek bilgilerle guncellenmelidir.
  */
+import { resolveSiteUrl } from "@/lib/site-url";
 
 export const site = {
   name: "TEMİNAT RAPOR",
@@ -17,7 +18,7 @@ export const site = {
     "Teminat Rapor; trafik kazaları, otomotiv, yangın, endüstriyel hasarlar, inşaat, taşınmaz, iş kazaları, bilişim ve belge inceleme alanlarında teknik uyuşmazlıkların uzmanlar tarafından incelenmesini ve gerekçeli teknik değerlendirmelere dönüştürülmesini sağlar.",
   shortDescription:
     "Trafik kazaları, otomotiv, yangın ve endüstriyel hasar, inşaat, taşınmaz, iş kazaları, bilişim ve belge inceleme alanlarında dosya bazlı teknik analiz, uzman görüşü ve teknik raporlama.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.teminatrapor.com",
+  url: resolveSiteUrl(),
   locale: "tr_TR",
   coverage: "Türkiye geneli",
 } as const;
